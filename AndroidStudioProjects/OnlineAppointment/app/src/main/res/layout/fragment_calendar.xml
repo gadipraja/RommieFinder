@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".calendarFragment">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/todo"
+        android:text="@string/todo"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        />
+
+    <Button
+        android:id="@+id/adderrand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_errand"
+        android:layout_below="@id/todo"
+        android:textSize="26sp"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/adderrand"
+        android:id="@+id/todo_list"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/your_roommate"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:id="@+id/header1"
+        android:layout_below="@id/todo_list"
+        />
+
+    <Button
+        android:id="@+id/clearerrand"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/header1"
+        android:background="#ff0000"
+        android:text="@string/clear"
+        android:textSize="15sp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/clearerrand"
+        android:id="@+id/roommate_list"
+        />
+</RelativeLayout>

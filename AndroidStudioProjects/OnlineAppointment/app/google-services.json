@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1087875776804",
+    "firebase_url": "https://online-appointment-syste-8e1bd.firebaseio.com",
+    "project_id": "online-appointment-syste-8e1bd",
+    "storage_bucket": "online-appointment-syste-8e1bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087875776804:android:60fe190b12e534f772f3b1",
+        "android_client_info": {
+          "package_name": "com.example.roomiefinder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1087875776804-fr37hjou0gt4sq6nrtg651abrehqkvbb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2Hz9WIe-IYysUGKVpEKt4dEfqzx09S-M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1087875776804-fr37hjou0gt4sq6nrtg651abrehqkvbb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
