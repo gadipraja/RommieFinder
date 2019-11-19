@@ -1,24 +1,25 @@
 package com.example.roomiefinder;
 
-
-import android.content.Context;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.squareup.picasso.Picasso;
 
+public class recycler_adapter_listing extends FirestoreRecyclerAdapter<lookup, recycler_adapter_listing.Holder> {
 
-public class recycler_adapter extends FirestoreRecyclerAdapter<lookup, recycler_adapter.Holder> {
+    private Uri u;
 
-    public recycler_adapter(@NonNull FirestoreRecyclerOptions<lookup> options) {
+    public recycler_adapter_listing(@NonNull FirestoreRecyclerOptions<lookup> options) {
         super(options);
     }
 
@@ -27,24 +28,14 @@ public class recycler_adapter extends FirestoreRecyclerAdapter<lookup, recycler_
         holder.title.setText(String.valueOf(s.getTitle()));
         holder.price.setText("$"+String.valueOf(s.getPrice()));
         holder.addr.setText(String.valueOf(s.getAddr()));
-        final String title = s.getTitle();
-        holder.card.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Context context = view.getContext();
-                CharSequence text = title + " is pressed";
-                int duration = Toast.LENGTH_SHORT;
-
-                Toast toast = Toast.makeText(context, text, duration);
-                toast.show();
-            }
-        });
+        holder.desc.setText(String.valueOf(s.getDesc()));
+        Picasso.with(holder.v.getContext()).load(s.getUrl()).into(holder.iv);
     }
 
     @NonNull
     @Override
     public Holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_ads,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_listing,parent,false);
         return new Holder(v);
     }
 
@@ -52,13 +43,17 @@ public class recycler_adapter extends FirestoreRecyclerAdapter<lookup, recycler_
         TextView title;
         TextView price;
         TextView addr;
-        CardView card;
+        TextView desc;
+        ImageView iv;
+        View v;
         public Holder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.title);
             price = itemView.findViewById(R.id.price);
-            addr = itemView.findViewById(R.id.addr);
-            card = itemView.findViewById(R.id.card);
+            addr = itemView.findViewById(R.id.address);
+            desc = itemView.findViewById(R.id.description);
+            iv = itemView.findViewById(R.id.image);
+            v = itemView;
         }
     }
 }

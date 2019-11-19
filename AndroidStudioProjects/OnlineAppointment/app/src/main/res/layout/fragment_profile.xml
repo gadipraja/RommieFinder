@@ -63,24 +63,13 @@
         android:textColor="#000000"
         android:textSize="30sp" />
 
-    <androidx.cardview.widget.CardView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/myListing"
         android:layout_below="@+id/yourlisting"
-        app:cardBackgroundColor="#4ef542">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/listing"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textColor="#000000"
-                android:textSize="20sp"
-                />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        />
 
 </RelativeLayout>

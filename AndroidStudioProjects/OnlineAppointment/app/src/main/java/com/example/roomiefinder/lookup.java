@@ -6,16 +6,22 @@ public class lookup {
     private String addr;
     private String poster;
     private String price;
+    private String url;
 
     public lookup()
     {}
 
-    public lookup(String title, String desc, String addr, String poster, String price) {
+    public lookup(String title, String desc, String addr, String poster, String price, String url) {
         this.title = title;
         this.desc = desc;
         this.addr = addr;
         this.price = price;
         this.poster = poster;
+        this.url = url;
+    }
+
+    public String getUrl() {
+        return url;
     }
 
     public String getTitle() {

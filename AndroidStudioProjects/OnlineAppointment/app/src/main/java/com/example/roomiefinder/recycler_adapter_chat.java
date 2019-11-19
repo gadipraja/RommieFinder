@@ -17,6 +17,8 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import org.w3c.dom.Text;
+
 import java.util.Objects;
 
 public class recycler_adapter_chat extends FirestoreRecyclerAdapter<chat, recycler_adapter_chat.Holder> {
@@ -34,14 +36,20 @@ public class recycler_adapter_chat extends FirestoreRecyclerAdapter<chat, recycl
         if(Objects.equals(user.getEmail(), String.valueOf(s.getSender())))
         {
             holder.box.setCardBackgroundColor(ContextCompat.getColor(holder.box.getContext(), R.color.lime_green));
-            holder.box.setLeft(70);
+            holder.name.setText("Me");
         }
         else
         {
             holder.box.setCardBackgroundColor(ContextCompat.getColor(holder.box.getContext(), R.color.ivory));
-            holder.box.setRight(70);
+            holder.name.setText(String.valueOf(s.getSenderName()));
+
         }
 
+    }
+
+    @Override
+    public int getItemCount() {
+        return super.getItemCount();
     }
 
     @NonNull
@@ -55,11 +63,13 @@ public class recycler_adapter_chat extends FirestoreRecyclerAdapter<chat, recycl
         TextView msg;
         TextView time;
         CardView box;
+        TextView name;
         public Holder(@NonNull View itemView) {
             super(itemView);
             msg = itemView.findViewById(R.id.chat);
             time = itemView.findViewById(R.id.time);
             box = itemView.findViewById(R.id.chat_box);
+            name  = itemView.findViewById(R.id.name);
         }
     }
 }

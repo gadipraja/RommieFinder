@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.Query;
@@ -65,7 +66,8 @@ public class calendarFragment extends Fragment {
         db.setFirestoreSettings(settings);
 
         Query query = FirebaseFirestore.getInstance()
-                .collection("Todo_list");
+                .collection("Todo_list")
+                .orderBy("time");
         FirestoreRecyclerOptions<errand> options = new FirestoreRecyclerOptions.Builder<errand>()
                 .setQuery(query, errand.class)
                 .build();
@@ -77,6 +79,7 @@ public class calendarFragment extends Fragment {
 
         Query query2 = FirebaseFirestore.getInstance()
                 .collection("Completed_list")
+                .orderBy("time")
                 .limit(50);
         FirestoreRecyclerOptions<errand> options2 = new FirestoreRecyclerOptions.Builder<errand>()
                 .setQuery(query2, errand.class)
@@ -114,6 +117,7 @@ public class calendarFragment extends Fragment {
                         else {
                             Map<String, Object> nr = new HashMap<>();
                             nr.put("errand", input.getText().toString());
+                            nr.put("time", Timestamp.now());
                             db.collection("Todo_list")
                                     .add(nr);
                         }

@@ -13,6 +13,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -51,7 +52,7 @@ public class recycler_adapter_todo extends FirestoreRecyclerAdapter<errand, recy
                                                     .delete();
                                             Map<String, Object> errand = new HashMap<>();
                                             errand.put("errand", String.valueOf(s.getErrand()));
-
+                                            errand.put("time", Timestamp.now());
                                             db.collection("Completed_list")
                                                     .add(errand);
                                             break;
